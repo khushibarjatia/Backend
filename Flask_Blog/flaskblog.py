@@ -9,69 +9,174 @@ db = SQLAlchemy(app)
 
 from models import User 
 
-questions = [
-{
-	"id": "1",
-	"question": "_____ they the first customers of the day?",
-	"answers": ["a) Who", "b) Were", "c) Was", "d) What"],
-	"correct": "b) Were"
-},
-{
-	"id": "2",
-	"question": "Thomas can't get out of bed because he _____ his leg.",
-	"answers": ["a) breakable", "b) break", "c) broke", "d) broken"],
-	"correct": "c) broke" 
-},
-{
-	"id": "3",
-	"question": "You can have ice cream _____ you finish your dinner.",
-	"answers": ["a) when", "b) but", "c) and", "d) or"],
-	"correct": "a) when"
-},
-{
-	"id": "4",
-	"question": "I have never _____ such a boring book!",
-	"answers": ["a) saw", "b) read", "c) readed", "d) red"],
-	"correct": "b) read" 
-},
-{
-	"id": "5",
-	"question": "Success in this examination depends _____ hard work alone.",
-	"answers": ["a) at", "b) on", "c) for", "d) over"],
-	"correct": "b) on" 
-},
-{
-	"id": "6",
-	"question": "Rohan and Rohit are twin brothers, but they do not look _____.",
-	"answers": ["a) unique", "b) different", "c) alike", "d) likely"],
-	"correct": "c) alike"
-},
-{
-	"id": "7",
-	"question": "The four sides of a room that hold up the ceiling.",
-	"answers": ["a) land", "b) soil", "c) ribbon", "d) wall"],
-	"correct": "d) wall"
-},
-{
-	"id": "8",
-	"question": "Discover:",
-	"answers": ["a) To drive fast", "b) To find unexpectedly", "c) To dream", "d) To start something"],
-	"correct": "b) To find unexpectedly"
-},
-{
-	"id": "9",
-	"question": "In which of the following places do people 'deposit' money?",
-	"answers": ["a) with a friend", "b) at a store", "c) at work", "d) at a bank"],
-	"correct": "d) at a bank"
-},
-{
-	"id": "10",
-	"question": "Which of the following best describes a 'wealthy' person?",
-	"answers": ["a) an accountant", "b) a millionaire", "c) a teacher", "d) a cashier"],
-	"correct": "b) a millionaire"
-} 
-]
-
+q1 = """ Select the antonym for word light:
+   a.Heavy
+   b.hard
+   c.tendy
+   d.brighter"""
+q2 = """Rhyming word for try:
+   a.tree
+   b.grey
+   c.fry
+   d.whee"""
+q3 = """ Were there any beers in the refrigerator?
+   a.Yes,there will be a few.
+   b.Thereare a little.
+   c.There was not even one.
+   d.There have been some.
+   e.There were a little."""
+q4 = """Where are my car keys?
+      They are _ _ _ _your hands!
+   a.on
+   b.to
+   c.of
+   d.in"""
+q5 = """Whose keys are these?
+      _ _ _ _are mine.
+   a.They
+   b.These 
+   c.It
+   d.whose
+   e.keys"""
+q6 = """_ _ _ the war ,most Italians were farmers.
+   a.To
+   b.From
+   c.While
+   d.Before
+   e.When"""
+q7 ="""who is your mother's sister's daughter?
+      _ _ _ _ .
+   a.She is my wife.
+   b.She is my mother's nephew.
+   c.She  my cousin.
+   d.Is my mother's niece.
+   e.My mother's sister's daughter is my cousin."""
+q8 ="""Paul can't touch ceiling because he is too _ _ _.
+   a.shortening
+   b.shortness
+   c.shorten
+   d.shortly
+   e.short."""
+q9 =""" Is there a doctor in the house?
+    _ _ _ _.
+   a.Yes,is there.
+   b.No,isn't.
+   c.Yes,there is.
+   d.No,they isn't
+   e.No ,theirs not."""
+q10 =""" We must _ _ _ _ the train at the next stop.
+   a.get off
+   b.get over
+   c.get on
+   d.get down
+   e.get up"""
+q11 = """Put your arms _ _ _ _ me and kiss me you fool!
+   a.beyond
+   b.around
+   c.to
+   d.onto
+   e.on"""
+q12 = """English grammmer is the worst grammmer of  any language.
+       No,it isn't.German grammer _ _ _ .
+   a.worse is.
+   b.is worst.
+   c.is bladder.
+   d.is worse."""
+q13 = """ Is that boy Mary's son? _ _ _.
+   a.Yes,name is Robert.
+   b.Yes,he is.
+   c.No,he is Marys nephew.
+   d.Yes,he are."""
+q14 = """ Where are you going?
+   a.I am going to Johns house.
+   b.I going at work.
+   c.I are going the store.
+   d.I am going to my mother's house."""
+q15 = """ He was invited_ _ _ _ he did not come.
+   a.if
+   b.when
+   c.or
+   d.but
+   e.while."""
+q16 = """ They _ _ _ _ the pyramids when went to Egypt.
+   a.didn't see.
+   b.seed
+   c.did not saw
+   d.not see
+   e.not seen"""
+q17 = """ Have you ever _ _ _ in that restaurant?
+   a.eat
+   b.going
+   c.ate 
+   d.went
+   e.eaten."""
+q18 =""" I will speak _ _ _ Suzanne when I see her.
+   a. in
+   b.to
+   c.around
+   d.at
+   e.toward"""
+q19 = """ Edward has always _ _ _ things very quickly and efficiently.
+   a.does
+   b.done 
+   c..did
+   d.do"""
+q20 = """Neha been working there _ _ _  only eight months.
+   a.in
+   b.by
+   c.for
+   d.since
+   e.from."""
+q21 =""" The police went_ _ _ _ all of Karl's things, but they didn't find any guns.
+   a.under
+   b.past
+   c.through
+   d.in
+   e.across."""
+q22 = """These pants _ _ _ mine;that jackets is yours.
+   a.of
+   b.are wearing
+   c.are
+   d.is wearing
+   e.is."""
+q23 =""" Never look directly _ _ _ the sun.It is bad for your eyes
+   a.to
+   b.for
+   c.through
+   d.of
+   e.at"""
+q24 ="""You can use my car _ _ _  tomorrow.
+   a.yet
+   b.since
+   c.until
+   d.around
+   e.in"""
+q25 ="""She _ _ _ blue velvet to the party last night.
+   a.worn
+   b.war
+   c.weared
+   d.wear
+   e.wore"""
+q26 = """_ _  _he understand what you were talking about?
+   a.could
+   b.cans
+   c.can't
+   d.does"""
+q27 ="""My sister _ _ _play tennis now.
+   a.can to
+   b.can
+   c.will can"""
+q28 = """I _ _ _ walk when I was less than a year old.
+   a.can
+   b.could
+   c.have can"""
+q29 = """(polite)_ _ _ you tell me what time it is ,please?
+   a.could
+   b.can
+   c.will"""
+questions ={q1:"a",q2:"c",q3:"e",q4:"d",q5:"a",q6:"d",q7:"e",q8:"e",q9:"c",q10:"a",q11:"b",q12:"d",q13:"b",q14:"d",q15:"d",q16:"a",
+            q17:"e",q18:"b",q19:"b",q20:"c",q21:"c",q22:"c",q23:"e",q24:"c",q25:"e",q26:"a",q27:"b",q28:"b",q29:"c"
+            }
 
 @app.route("/")
 @app.route("/home")
@@ -102,6 +207,23 @@ def login():
 
 @app.route("/quiz", methods=['POST', 'GET']) 
 def quiz():
+	score = 0
+for i in questions:
+    print(i)
+    flag1 =input("Do you want to skip this question? Y/N")
+    if flag1=="Y":
+       continue
+    ans = input("Enter the answer:")
+    if ans==questions[i]:
+        print("correct answer,you got 1 point")
+        score = score+1
+    else:
+        print("wrong answer,you lost 1 point")
+        score =score-1
+    flag2 =input("Do you want to quit ? Y/N")
+    if flag2 =="y":
+       break
+print("Final score is:" ,score)
 	if request.method == 'GET':
 		return render_template('quiz.html', data=questions, title='Quiz') 
 	else:
