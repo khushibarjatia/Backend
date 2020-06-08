@@ -178,6 +178,24 @@ questions ={q1:"a",q2:"c",q3:"e",q4:"d",q5:"a",q6:"d",q7:"e",q8:"e",q9:"c",q10:"
             q17:"e",q18:"b",q19:"b",q20:"c",q21:"c",q22:"c",q23:"e",q24:"c",q25:"e",q26:"a",q27:"b",q28:"b",q29:"c"
             }
 
+score = 0
+for i in questions:
+    print(i)
+    flag1 =input("Do you want to skip this question? Y/N")
+    if flag1=="Y":
+       continue
+    ans = input("Enter the answer:")
+    if ans==questions[i]:
+        print("correct answer,you got 1 point")
+        score = score+1
+    else:
+        print("wrong answer,you lost 1 point")
+        score =score-1
+    flag2 =input("Do you want to quit ? Y/N")
+    if flag2 =="y":
+       break
+print("Final score is:" ,score)
+
 @app.route("/")
 @app.route("/home")
 def home():
@@ -207,23 +225,7 @@ def login():
 
 @app.route("/quiz", methods=['POST', 'GET']) 
 def quiz():
-	score = 0
-for i in questions:
-    print(i)
-    flag1 =input("Do you want to skip this question? Y/N")
-    if flag1=="Y":
-       continue
-    ans = input("Enter the answer:")
-    if ans==questions[i]:
-        print("correct answer,you got 1 point")
-        score = score+1
-    else:
-        print("wrong answer,you lost 1 point")
-        score =score-1
-    flag2 =input("Do you want to quit ? Y/N")
-    if flag2 =="y":
-       break
-print("Final score is:" ,score)
+	
 	if request.method == 'GET':
 		return render_template('quiz.html', data=questions, title='Quiz') 
 	else:
