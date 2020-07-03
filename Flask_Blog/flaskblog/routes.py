@@ -473,8 +473,9 @@ def quiz_results():
     question = request_data['question'] 
     for question in questions:
         if request.form[question.get('question')] == question.get('correct'):
-            result.append(id)  
-    return jsonify(result)  
+            result.append(id) 
+            
+    return jsonify(len(result)) 
 
 
 @app.route("/analyze_yourself", methods=['GET', 'POST'])
